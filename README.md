@@ -39,3 +39,7 @@ Run docker image built for pytorce and mount it to the data folder where the cin
 
 ## Launch Juypter Notebook
 ```jupyter-notebook```
+run the notebooks
+
+## Launch Tensorboard
+```tensorboard --logdir=/path/to/log/directory```
