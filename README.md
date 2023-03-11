@@ -10,13 +10,24 @@ wget https://w251hw05.s3.us-west-1.amazonaws.com/ILSVRC2012_img_train.tar
 wget https://w251hw05.s3.us-west-1.amazonaws.com/ILSVRC2012_img_val.tar
 wget https://w251hw05.s3.us-west-1.amazonaws.com/ILSVRC2012_devkit_t12.tar.gz
 
-mkdir train
-mkdir val
-tar -xvf ILSVRC2012_img_train.tar -C train
-tar -xvf ILSVRC2012_img_val.tar -C val
+mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
+tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
+find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
+cd ..
+```
 
-rm ILSVRC2012_img_train.tar
-rm ILSVRC2012_img_val.tar
+### Extract the training dataset
+```
+mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
+tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
+find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
+cd ..
+```
+
+### Extract the validation dataset
+```
+mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
+wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
 ```
 
 ## Launch docker image
