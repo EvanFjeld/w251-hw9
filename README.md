@@ -37,6 +37,12 @@ Run docker image built for pytorce and mount it to the data folder where the cin
 ## Clone this repo
 ```git clone https://github.com/EvanFjeld/w251-hw9.git```
 
+## Install nccl
+```
+apt-get update
+apt-get install -y libnccl2 libnccl-dev
+```
+
 ## Launch Juypter Notebook
 ```jupyter-notebook```
 run the notebooks
