@@ -35,7 +35,7 @@ Run docker image built for pytorce and mount it to the data folder where the cin
 ```docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti nvcr.io/nvidia/pytorch:23.02-py3 bash```
 
 ## Clone this repo
-```get clone https://github.com/EvanFjeld/w251-hw9.git```
+```git clone https://github.com/EvanFjeld/w251-hw9.git```
 
 ## Launch Juypter Notebook
 ```jupyter-notebook```
