@@ -52,7 +52,9 @@ run the notebooks
 
 ## Launch Tensorboard
 ```
+pip install --upgrade pip
 pip install tensorflow
 pip install tensorboard
+pip install tensorflow-gpu
 tensorboard --logdir=/workspace/w251-hw9/logs --host=0.0.0.0 --port=6006
 ```
