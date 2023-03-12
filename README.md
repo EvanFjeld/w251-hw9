@@ -37,7 +37,9 @@ docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti -p 1234:123
 ```
 
 ## Clone this repo
-```git clone https://github.com/EvanFjeld/w251-hw9.git```
+```
+git clone https://github.com/EvanFjeld/w251-hw9.git
+```
 
 ## Install nccl
 ```
@@ -47,7 +49,9 @@ apt-get update
 ```
 
 ## Launch Juypter Notebook
-```jupyter-notebook```
+```
+jupyter-notebook
+```
 run the notebooks
 
 ## Launch Tensorboard
