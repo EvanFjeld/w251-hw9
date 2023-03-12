@@ -39,8 +39,9 @@ Run docker image built for pytorce and mount it to the data folder where the cin
 
 ## Install nccl
 ```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
+dpkg -i cuda-keyring_1.0-1_all.deb
 apt-get update
-apt-get install -y libnccl2 libnccl-dev
 ```
 
 ## Launch Juypter Notebook
