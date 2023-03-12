@@ -53,5 +53,6 @@ run the notebooks
 ## Launch Tensorboard
 ```
 pip install tensorflow
-tensorboard --logdir=/workspace/w251-hw9/logs
+pip install tensorboard
+tensorboard --logdir=/workspace/w251-hw9/logs --host=0.0.0.0 --port=6006
 ```
