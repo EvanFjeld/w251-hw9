@@ -32,7 +32,9 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 
 ## Launch docker image
 Run docker image built for pytorce and mount it to the data folder where the cinic data is stored
-```docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti nvcr.io/nvidia/pytorch:23.02-py3 bash```
+```
+docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti -p 1234:1234 -p 6006:6006 nvcr.io/nvidia/pytorch:23.02-py3 bash
+```
 
 ## Clone this repo
 ```git clone https://github.com/EvanFjeld/w251-hw9.git```
