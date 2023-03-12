@@ -51,4 +51,7 @@ apt-get update
 run the notebooks
 
 ## Launch Tensorboard
-```tensorboard --logdir=/path/to/log/directory```
+```
+pip install tensorflow
+tensorboard --logdir=/workspace/w251-hw9/logs
+```
