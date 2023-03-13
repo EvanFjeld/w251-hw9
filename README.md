@@ -31,12 +31,13 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 ```
 
 ## Launch docker image
-Run docker image built for pytorce and mount it to the data folder where the cinic data is stored
+Run docker image built for pytorce and mount it to the data folder where the cinic data is stored. I'm also mounting two ports, 1234 in order to coordinate across VMs and 6006 to enable TensorBoard. 
 ```
 docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti -p 1234:1234 -p 6006:6006 nvcr.io/nvidia/pytorch:23.02-py3 bash
 ```
 
 ## Clone this repo
+This provides access to the jupyter notebooks that will run the analysis. 
 ```
 git clone https://github.com/EvanFjeld/w251-hw9.git
 ```
@@ -57,7 +58,9 @@ tensorboard --logdir=/workspace/w251-hw9/logs --host=0.0.0.0 --port=6006
 ```
 
 # Notebooks
-```imagenet_train_pytorch_ho9_singlevm.ipynb``` is the notework that trains the model on imagenet on a signle VM. ```imagenet_train_pytorch_ho9_0.ipynb``` is the master notebook to train on multiple VMs with RANK=0 while ```imagenet_train_pytorch_ho9_1.ipynb``` is the worker notebook with RANK=0.
+```imagenet_train_pytorch_ho9_singlevm.ipynb``` is the notework that trains the model on imagenet on a signle VM. 
+```imagenet_train_pytorch_ho9_0.ipynb``` is the master notebook to train on multiple VMs with RANK=0 while 
+```imagenet_train_pytorch_ho9_1.ipynb``` is the worker notebook with RANK=0.
 
 For training, all notebooks us a g5.2xlarge instence on AWS with a NVIDIA GPU-Optimized AMI 22.06.0 image and 200 GBs or storage. They all train on a cuda GPU using autocast, a batch size of 1024 to use the GPU. I was not able to consistently use the GPUs at greather than 95% but got relatively close. 
 
