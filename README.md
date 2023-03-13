@@ -68,7 +68,7 @@ If you open the TensorBoard following the instructions above, you can see the pe
 # Performance
 
 ## Single VM Training
-In the folder titled 'Single VM Performance' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took between 6.2 and 6.5 minutes a batch with a final accuracy for the top 1 predictions of .46854% and an accuracy of the top 5 predictions of .72586%. 
+In the folder titled 'Single VM Performance' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took between 6.2 and 6.5 minutes a batch with a final accuracy for the top 1 predictions of 46.854% and an accuracy of the top 5 predictions of 72.586%. 
 
 CPU times: user 27min 5s, sys: 4min 23s, total: 31min 28s
 Wall time: 4h 42min 47s
@@ -76,6 +76,9 @@ Wall time: 4h 42min 47s
 You can see in the Tensorboard images that the model begins to overfit during each epoch but then takes a big jump in performance. Turning the learning rate and momentum would likely lead to better performance. 
 
 ## Two VM Training
-In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just over half the time at xxxx with a final accuracy of yyyy. Clearly, the time savings of multiple GPUs was worth it. 
+In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just less than half the time at xxxx with a with a final accuracy for the top 1 predictions of 51.552% and an accuracy of the top 5 predictions of 77.380%. Clearly, the time savings of multiple GPUs was worth it. 
 
 It's not quite half the time because of the additional overhead required to coordinate the work between the VMs and communicate between themm. 
+
+CPU times: user 19min 17s, sys: 13min 39s, total: 32min 57s
+Wall time: 1h 16min 49s
