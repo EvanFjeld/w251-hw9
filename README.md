@@ -66,7 +66,7 @@ tensorboard --logdir=/workspace/w251-hw9/logs --host=0.0.0.0 --port=6006
 # Performance
 
 ## Single VM Training
-In the folder titled 'Single VM Usage' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took about xxxx with a final accuracy of yyyy
+In the folder titled 'Single VM Performance' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took about xxxx with a final accuracy of yyyy
 
 ## Two VM Training
 In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just over half the time at xxxx with a final accuracy of yyyy. Clearly, the time savings of multiple GPUs was worth it. 
