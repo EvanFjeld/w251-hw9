@@ -41,13 +41,6 @@ docker run --rm -v /home/ubuntu/data:/data --net=host --gpus=all -ti -p 1234:123
 git clone https://github.com/EvanFjeld/w251-hw9.git
 ```
 
-## Install nccl
-```
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
-dpkg -i cuda-keyring_1.0-1_all.deb
-apt-get update
-```
-
 ## Launch Juypter Notebook
 ```
 jupyter-notebook
@@ -63,10 +56,19 @@ pip install tensorflow-gpu
 tensorboard --logdir=/workspace/w251-hw9/logs --host=0.0.0.0 --port=6006
 ```
 
+# Notebooks
+```imagenet_train_pytorch_ho9_singlevm.ipynb``` is the notework that trains the model on imagenet on a signle VM. ```imagenet_train_pytorch_ho9_0.ipynb``` is the master notebook to train on multiple VMs with RANK=0 while ```imagenet_train_pytorch_ho9_1.ipynb``` is the worker notebook with RANK=0.
+
+For training, all notebooks us a g5.2xlarge instence on AWS with a NVIDIA GPU-Optimized AMI 22.06.0 image and 200 GBs or storage. They all train on a cuda GPU using autocast, a batch size of 1024 to use the GPU. I was not able to consistently use the GPUs at greather than 95% but got relatively close. 
+
+In order to process the images in ImageNet 2012, I resize every image to 256x256 and then center crop at 224x224. I had some issues with the sizes of images and this was the most effective way I got it to work. 
+
+If you open the TensorBoard following the instructions above, you can see the performance trends. There are screenshots of both the single VM TensorBoard as well as the multiple VM TensorBoard in their 
+
 # Performance
 
 ## Single VM Training
-In the folder titled 'Single VM Performance' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took about xxxx with a final accuracy of yyyy
+In the folder titled 'Single VM Performance' you can see a few files with the GPU utilization as well as a screenshot of the tensorflow dashboard. To train two epochs, it took between 6.2 and 6.5 minutes a batch with a final accuracy for the top 1 predictions of .43708% and an accuracy of the top 5 predictions of .70724%.
 
 ## Two VM Training
 In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just over half the time at xxxx with a final accuracy of yyyy. Clearly, the time savings of multiple GPUs was worth it. 
