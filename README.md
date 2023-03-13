@@ -76,9 +76,9 @@ Wall time: 4h 42min 47s
 You can see in the Tensorboard images that the model begins to overfit during each epoch but then takes a big jump in performance. Turning the learning rate and momentum would likely lead to better performance. 
 
 ## Two VM Training
-In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just less than half the time at xxxx with a with a final accuracy for the top 1 predictions of 51.552% and an accuracy of the top 5 predictions of 77.380%. Clearly, the time savings of multiple GPUs was worth it. 
+In ithe folder title 'Double VM Performance', you can see a few images of the GPU usage and the model performance. To train the model two epochs on two VMs with multiple GPUs took just less than half the time at xxxx with a with a final accuracy for the top 1 predictions of 51.552% and an accuracy of the top 5 predictions of 77.380%. 
 
-It's not quite half the time because of the additional overhead required to coordinate the work between the VMs and communicate between themm. 
+Typicall, I would not expect it to be half the time because of the additional overhead required to coordinate the work between the VMs and communicate between themm. In this case, I needed to adjust the batch size from single VM training of 1024 to multi-VM training to 512 due to the constraints of coordinating across VMs. I did not have time to go back and do an apples to apples comparison but with improved accuracy and speed, multiple VMs with a smaller batch size was clearly worth it in this case. 
 
 CPU times: user 19min 17s, sys: 13min 39s, total: 32min 57s
 Wall time: 1h 16min 49s
